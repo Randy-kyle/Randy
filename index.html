@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KYLE Portfolio</title>
+    <script src="https://cdn.tailwindcss.com">
+      </script>
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            nutaku: {
+              red: '#ff2a4f',
+              dark: '#1a1a2e',
+              purple: '#6a3093',
+ }
+},
+transitionProperty: {
+    'width': 'width',
+    'spacing': 'margin, padding',
+        },
+      }
+   }
+}
+</script>
+<style>
+.sidebar {
+    width: 280px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+.sidebar.open {
+    transform: translateX(0);
+}
+.sidebar-link {
+    position: relative;
+    overflow: hidden;
+}
+.sidebar-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff2a4f, #6a3093);
+    transition: all 0.3s ease;
+}
+.sidebar-link:hover::after {
+    width: 100%;
+}
+.sidebar-link.active::after {
+    width: 100%;
+}
+.overlay {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+    @media (min-width: 768px) {
+.sidebar {
+    transform: translateX(0);
+}
+.main-content {
+    margin-left: 280px;
+}
+.menu-toggle {
+    display: none;
+  }
+}
+    </style>
+</head>
+<body class="bg-nutaku-dark text-gray-100 min-h-screen flex">
+          <!-- Sidebar Navigation -->
+<aside class="sidebar fixed inset-y-0 left-0 z-50 bg-nutaku-dark/95 backdrop-blur-sm border-r border-gray-800 shadow-lg overflow-y-auto">
+  <div class="p-6 flex flex-col h-full">
+            <!-- Logo -->
+<div class="flex items-center space-x-3 mb-10">
+  <div class="w-10 h-10 rounded-full bg-gradient-to-r from-nutaku-red to-nutaku-purple flex items-center justify-center">
+    <i class='bx bx-code-alt text-white'>
+      </i>
+    </div>
+  <span class="text-xl font-bold bg-gradient-to-r from-nutaku-red to-nutaku-purple bg-clip-text text-transparent">KYLE
+  </span>
+</div>
+            <!-- Navigation Links -->
+<nav class="flex-1">
+  <ul class="space-y-2">
+    <li>
+    <a href="index.html" class="sidebar-link active flex items-center px-4 py-3 text-white font-medium rounded-lg transition-colors">
+      <i class='bx bx-home mr-3 text-xl'>
+        </i>
+        <span>Home</span>
+             </a>
+            </li>
+           <li>
+    <a href="/src/public/about.html" class="sidebar-link flex items-center px-4 py-3 text-gray-300 hover:text-white font-medium rounded-lg transition-colors">
+      <i class='bx bx-user mr-3 text-xl'>
+        </i>
+       <span>About</span>
+          </a>
+         </li>
+        <li>
+    <a href="/src/public/work.html" class="sidebar-link flex items-center px-4 py-3 text-gray-300 hover:text-white font-medium rounded-lg transition-colors">
+      <i class='bx bx-briefcase mr-3 text-xl'>
+        </i>
+        <span>Work</span>
+           </a>
+          </li>
+         <li>
+    <a href="/src/public/contact.html" class="sidebar-link flex items-center px-4 py-3 text-gray-300 hover:text-white font-medium rounded-lg transition-colors">
+      <i class='bx bx-envelope mr-3 text-xl'>
+        </i>
+        <span>Contact</span>
+        </a>
+      </li>
+   </ul>
+</nav>
+           <!-- Social Links -->
+<div class="pt-6 border-t border-gray-800 mt-auto">
+  <div class="flex justify-center space-x-4">
+   <a href="https://facebook.com/Randy.kyle09" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-800 hover:bg-nutaku-red transition-colors hover:scale-110">
+     <i class='bx bxl-facebook'>
+       </i>
+      </a>
+   <a href="https://instagram.com/Randy.kyle09" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-800 hover:bg-nutaku-red transition-colors hover:scale-110">
+     <i class='bx bxl-instagram'></i>
+         </a>
+       </div>
+     </div>
+   </div>
+</aside>
+        <!-- Overlay (for mobile) -->
+<div class="overlay fixed inset-0 bg-black/50 z-40 md:hidden" id="overlay">
+</div>
+            <!-- Main Content -->
+<main class="main-content flex-1 transition-all duration-300">
+      <!-- Menu Toggle Button (Mobile) -->
+<button id="menu-toggle" class="menu-toggle fixed top-4 left-4 z-30 p-2 rounded-full bg-nutaku-dark/80 backdrop-blur-sm border border-gray-700 text-white md:hidden">
+  <i class='bx bx-menu text-2xl'>
+  </i>
+</button>
+          <!-- Page Content -->
+<div class="max-w-6xl mx-auto px-4 sm:px-8 pt-24 md:pt-12 pb-12">
+  <section class="min-h-[calc(100vh-8rem)] flex flex-col md:flex-row items-center justify-center md:justify-between gap-8">
+    <div class="md:w-1/2 text-center md:text-left">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight"> Hi, I'm <span class="bg-gradient-to-r from-nutaku-red to-nutaku-purple bg-clip-text text-transparent">Developer</span>
+      </h1>
+      <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-md mx-auto md:mx-0">
+Creating immersive experiences with a Nutaku-inspired aesthetic
+        </p>
+      <a href="/src/public/contact.html" class="inline-block bg-gradient-to-r from-nutaku-red to-nutaku-purple px-8 py-3 rounded-full font-medium hover:shadow-lg hover:shadow-nutaku-red/30 transition-all hover:scale-105">
+         Contact Me
+        </a>
+     </div>
+   </section>
+</div>
+            <!-- Copyright Footer -->
+<footer class="py-6 border-t border-gray-800 bg-nutaku-dark/50 backdrop-blur-sm">
+  <div class="max-w-6xl mx-auto px-4 sm:px-8 text-center text-pink-500 text-sm">
+    <p>&copy; <span id="current-year"></span> 2025 randy kyle. All rights reserved.</p>
+     </div>
+  </footer>
+</main>
+
+<script>
+        // Sidebar toggle functionality
+ const menuToggle = document.getElementById('menu-toggle');
+ const sidebar = document.querySelector('.sidebar');
+ const overlay = document.getElementById('overlay');
+ const menuIcon = document.querySelector('#menu-toggle i');
+        
+  menuToggle.addEventListener('click', function() {
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('active');
+             // Change icon
+  if (sidebar.classList.contains('open')) {
+                menuIcon.classList.remove('bx-menu');
+                menuIcon.classList.add('bx-x');
+                document.body.style.overflow = 'hidden';
+            } else {
+                menuIcon.classList.remove('bx-x');
+                menuIcon.classList.add('bx-menu');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Close sidebar when clicking on overlay
+        overlay.addEventListener('click', function() {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+            menuIcon.classList.remove('bx-x');
+            menuIcon.classList.add('bx-menu');
+            document.body.style.overflow = '';
+        });
+        
+        // Set active link based on current page
+        document.querySelectorAll('.sidebar-link').forEach(link => {
+            if(link.href === window.location.href) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
